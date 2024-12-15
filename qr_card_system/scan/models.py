@@ -8,6 +8,7 @@ from django.conf import settings
 from django.core.files import File
 from django.core.files.base import ContentFile
 from PIL import Image, ImageDraw
+import uuid
 
 class CardOwner(models.Model):
     card_uid = models.CharField(max_length=100, unique=True, blank=True)
@@ -31,7 +32,7 @@ class CardOwner(models.Model):
 
     def generate_qr_code(self):
         """Generate a QR code based on the card owner's details."""
-        qr_data = f"Name: {self.name} Email: {self.email} Phone: {self.phone} Hostel: {self.hostel_name} Room: {self.room_number}"
+        qr_data = f"This keycard belongs to:\n{self.name}, resides in {self.hostel_name} Hostel\n Please screenshot this information and share on whatsapp and leave the card at the school gate security or hostel reception.\n Thank you"
         qr = qrcode.QRCode(
             version=1,
             error_correction=qrcode.constants.ERROR_CORRECT_L,  # Lower error correction

@@ -5,6 +5,10 @@ from .forms import CardOwnerForm
 
 
 # Create your views here.
+def index(request):
+    """Render the welcome page."""
+    return render(request, 'index.html')
+
 def add_card(request):
     if request.method == 'POST':
         form = CardOwnerForm(request.POST)

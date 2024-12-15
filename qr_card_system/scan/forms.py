@@ -4,7 +4,7 @@ from .models import CardOwner
 class CardOwnerForm(forms.ModelForm):
     class Meta:
         model = CardOwner
-        fields = ['name', 'email', 'phone', 'hostel_name', 'room_number', 'card_uid']
+        fields = ['name', 'email', 'phone', 'hostel_name', 'room_number',]
         widgets = {
             'card_uid': forms.TextInput(attrs={'placeholder': 'Unique Card ID'}),
             'name': forms.TextInput(attrs={'placeholder': 'Full Name'}),
